@@ -19,29 +19,21 @@ public class MonkeyKing {
 		}
 		sum = n;
 		start = k;
-		m = m -1;
-		int point;
-		while(sum > 1){
-			while(a[start] == 0){
-				start = (start + 1) % (n + 1);
-			}
-			point = (start + m) % (n + 1);
-			while(a[point] == 0){
-				point = (point + 1) % (n + 1);
-			}
-			if(a[start] != 0 && a[point] != 0){
-				start++;
-				System.out.println(point + " ");
+		for(int i = 0; i <= m; i++){
+			if(sum == 1)
+				break;
+			else if(i == m){
 				sum--;
+				i = 0;
+				a[k] = 0;
+				System.out.print(k + " ");
 			}
+			do{
+				k = (k + 1) % n;
+				if(k == 0)
+					k = 120;
+			}while(a[k] != 0);
 		}
-		if(sum == 1){
-			int j = 1;
-			while(a[j] == 0)
-				j++;
-			if(j < n + 1){
-				System.out.println("猴王编号为:" + a[j]);
-			}
-		}
+		System.out.println("猴王编号为:" + k);
 	}
 }
