@@ -13,7 +13,7 @@ public class MoneyConvert {
             "陆", "柒", "捌", "玖" };
     private final static String[] STR_UNIT = { "", "拾", "佰", "仟", "万", "拾",
             "佰", "仟", "亿", "拾", "佰", "仟" };// 整数单位
-    private final static String[] STR_UNIT2 = { "角", "分", "厘" };// 小数单位
+    private final static String[] STR_UNIT2 = { "厘", "分", "角" };// 小数单位
     
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);// 创建扫描器
@@ -125,6 +125,7 @@ public class MoneyConvert {
         DecimalFormat df = new DecimalFormat("#0.###");
         // 格式化double数字
         String strNum = df.format(d);
+//        System.out.println("strNum=" + strNum);
         // 判断是否包含小数点
         if (strNum.indexOf(".") != -1) {
             String num = strNum.substring(0, strNum.indexOf("."));
